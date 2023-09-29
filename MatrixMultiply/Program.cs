@@ -56,9 +56,9 @@ namespace MatrixMultiply
                 }
             }
 
-            for (int i = 0; i < rowsAmount; i++)
+            for (int i = 0; i < rowsAmount; ++i)
             {
-                for (int j = 0; j < columnsAmount; j++)
+                for (int j = 0; j < columnsAmount; ++j)
                 {
                     int iNew = i;
                     int jNew = j;
@@ -87,7 +87,7 @@ namespace MatrixMultiply
         static int Multiply(int[] row, int[] column)
         {
             int result = 0;
-            for (int i = 0; i < row.Length; i++)
+            for (int i = 0; i < row.Length; ++i)
             {
                 result += row[i] * column[i];
             }
@@ -127,9 +127,9 @@ namespace MatrixMultiply
         {
             int[,] matrix = new int[rows, columns];
             //Random rnd = new Random();
-            for (int i = 0; i < rows; i++)
+            for (int i = 0; i < rows; ++i)
             {
-                for (int j = 0; j < columns; j++)
+                for (int j = 0; j < columns; ++j)
                 {
                     matrix[i, j] = rndMinMax;// rnd.Next(-rndMinMax, rndMinMax + 1);
                     //Thread.Sleep(1);
@@ -142,9 +142,9 @@ namespace MatrixMultiply
 
         static void PrintMatrix(int[,] matrix)
         {
-            for (int i = 0; i < matrix.GetLength(0); i++)
+            for (int i = 0; i < matrix.GetLength(0); ++i)
             {
-                for (int j = 0; j < matrix.GetLength(1); j++)
+                for (int j = 0; j < matrix.GetLength(1); ++j)
                 {
                     Console.Write($"{matrix[i,j],3}");
                 }
