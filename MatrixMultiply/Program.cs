@@ -16,10 +16,13 @@ namespace MatrixMultiply
             long timeOrigin;
 
             timeOrigin = TaskMultiple(matrix1, matrix2, out matrix3);
-            Console.WriteLine($"Время расчёта многопоточного (Task) = {timeOrigin} мс");
+            //Console.WriteLine($"Время расчёта многопоточного (Task) = {timeOrigin} мс");
+            //Console.WriteLine(matrix3[0,0]);
 
             timeOrigin = OriginMultiple(matrix1, matrix2, out matrix3);
             Console.WriteLine($"Время расчёта синхронного = {timeOrigin} мс");
+            //Console.WriteLine();
+            //Console.WriteLine(matrix3[0, 0]);
 
             //PrintMatrix(matrix1);
             //Console.WriteLine();
@@ -77,7 +80,8 @@ namespace MatrixMultiply
                 }                
             }
             
-            Task.WaitAll(tasks);
+            Task.WhenAll(tasks);
+            //Task.WaitAll(tasks);
             matrix_result = matrix_result_thread;
             sw.Stop();            
             return sw.ElapsedMilliseconds;
